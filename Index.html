@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Comfort Delivery 🌷</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffe7ef,#fff7fb,#f6eeff);
+min-height:100vh;
+color:#563047;
+overflow-x:hidden;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.hero{
+text-align:center;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:1.1rem;
+opacity:.8;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
+
+.squirrel{
+font-size:4rem;
+text-align:center;
+margin-bottom:15px;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-8px);
+}
+}
+
+button{
+border:none;
+border-radius:50px;
+padding:12px 22px;
+cursor:pointer;
+margin-top:10px;
+background:#ff79a7;
+color:white;
+font-size:1rem;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-3px);
+}
+
+.options{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:20px;
+justify-content:center;
+}
+
+.option{
+padding:14px 20px;
+background:#fff0f6;
+border-radius:15px;
+cursor:pointer;
+transition:.3s;
+}
+
+.option:hover{
+background:#ffd8e9;
+transform:scale(1.05);
+}
+
+.result{
+margin-top:20px;
+font-weight:600;
+color:#c03775;
+}
+
+.spotify-btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#1DB954;
+color:white;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.book{
+background:#fff7fa;
+padding:15px;
+border-radius:15px;
+margin-top:10px;
+}
+
+.movie-card{
+background:#f8f1ff;
+padding:20px;
+border-radius:18px;
+margin-top:15px;
+}
+
+.envelope{
+background:#fff5fb;
+padding:25px;
+border-radius:20px;
+line-height:1.8;
+}
+
+.heart{
+position:fixed;
+color:#ff69a6;
+animation:fall linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+from{
+transform:translateY(-10vh);
+opacity:1;
+}
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+footer{
+text-align:center;
+padding:30px;
+opacity:.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="hero">
+<h1>🌷 A Little Comfort Delivery 🌷</h1>
+<p>A small care package has arrived.</p>
+</div>
+
+<div class="card">
+
+<div class="squirrel">🐿️</div>
+
+<h2>Hello, You ☺️</h2>
+
+<p style="margin-top:15px;">
+I'm Nutmeg, the travelling squirrel.
+</p>
+
+<p style="margin-top:10px;">
+I've crossed forests, gardens, airports, and approximately fourteen snack stops to deliver a special comfort package.
+</p>
+
+<p style="margin-top:10px;">
+Ready to explore?
+</p>
+
+<button onclick="hearts()">Let's Go →</button>
+
+</div>
+
+<!-- FLOWERS -->
+
+<div class="card">
+
+<h2>🌷 Step 1: Pick Your Flowers</h2>
+
+<p>Every comfort package deserves flowers.</p>
+
+<div class="options">
+
+<div class="option" onclick="chooseFlower('🌹 Beautiful Roses')">
+🌹 Beautiful Roses
+</div>
+
+<div class="option" onclick="chooseFlower('🌷 Tulips')">
+🌷 Tulips
+</div>
+
+<div class="option" onclick="chooseFlower('🌻 Sunflowers')">
+🌻 Sunflowers
+</div>
+
+<div class="option" onclick="chooseFlower('🌸 Cherry Blossoms')">
+🌸 Cherry Blossoms
+</div>
+
+<div class="option" onclick="chooseFlower('💜 Lavender Bouquet')">
+💜 Lavender Bouquet
+</div>
+
+</div>
+
+<div class="result" id="flowerResult"></div>
+
+</div>
+
+<!-- CHOCOLATE -->
+
+<div class="card">
+
+<h2>🍫 Step 2: Choose Your Chocolate</h2>
+
+<p>Please choose the chocolate that best matches today's mood.</p>
+
+<div class="options">
+
+<div class="option" onclick="chooseChocolate('🍫 Milk Chocolate')">
+🍫 Milk Chocolate
+</div>
+
+<div class="option" onclick="chooseChocolate('🍓 Strawberry Truffles')">
+🍓 Strawberry Truffles
+</div>
+
+<div class="option" onclick="chooseChocolate('🍯 Caramel Collection')">
+🍯 Caramel Collection
+</div>
+
+<div class="option" onclick="chooseChocolate('🍪 Cookies & Cream')">
+🍪 Cookies & Cream
+</div>
+
+<div class="option" onclick="chooseChocolate('🌙 Dark Chocolate')">
+🌙 Dark Chocolate
+</div>
+
+</div>
+
+<div class="result" id="chocoResult"></div>
+
+</div>
+
+<!-- SPOTIFY -->
+
+<div class="card">
+
+<h2>🎵 Olivia Rodrigo Corner</h2>
+
+<p>
+Every comfort package deserves a soundtrack.
+Today's recommendation is <strong>stupid song</strong> by Olivia Rodrigo.
+</p>
+
+<p style="margin-top:10px;">
+Find a comfortable spot, press play, and enjoy the music.
+</p>
+
+https://open.spotify.com/search/stupid%20song%20olivia%20rodrigo
+
+🎧 Listen on Spotify
+
+</a>
+
+</div>
+
+<!-- BOOKS -->
+
+<div class="card">
+
+<h2>📚 Romance Reader Corner</h2>
+
+<p>
+A few recommendations for your TBR list:
+</p>
+
+<div class="book">
+<b>Funny Story</b> by Emily Henry<br>
+Witty, charming and impossible to put down.
+</div>
+
+<div class="book">
+<b>Just for the Summer</b> by Abby Jimenez<br>
+Sweet, emotional and comforting.
+</div>
+
+<div class="book">
+<b>Wild Love</b> by Elsie Silver<br>
+Memorable characters and great chemistry.
+</div>
+
+<div class="book">
+<b>Bride</b> by Ali Hazelwood<br>
+Romance with a fantasy twist.
+</div>
+
+<div class="book">
+<b>The Paradise Problem</b> by Christina Lauren<br>
+Fun, clever and wonderfully chaotic.
+</div>
+
+</div>
+
+<!-- MOVIE -->
+
+<div class="card">
+
+<h2>🎬 Movie Time</h2>
+
+<div class="movie-card">
+
+<h3>The Idea of You</h3>
+
+<p style="margin-top:10px;">
+Feels like the sort of movie we could've watched together from a parked car, during a walk in the park, or while sharing commentary about every scene.
+</p>
+
+<p style="margin-top:10px;">
+For now, here's a virtual movie recommendation.
+</p>
+
+<br>
+
+https://www.primevideo.com
+
+🎬 Open Prime Video
+
+</a>
+
+</div>
+
+</div>
+
+<!-- LETTER -->
+
+<div class="card">
+
+<h2>💌 Final Envelope</h2>
+
+<div class="envelope">
+
+<p>
+Congratulations.
+</p>
+
+<p>
+Your comfort package has been successfully collected.
+</p>
+
+<p>
+✅ Flowers Selected<br>
+✅ Chocolate Acquired<br>
+✅ Music Enabled<br>
+✅ Book Recommendations Unlocked<br>
+✅ Movie Suggestion Delivered
+</p>
+
+<p>
+I hope today is gentle on you.
+</p>
+
+<p>
+Remember to rest when you need to, stay hydrated, and take things one step at a time.
+</p>
+
+<p>
+Wishing you plenty of comfort, good music, a great book, and something enjoyable to watch.
+</p>
+
+<p>
+And thank you for spending a few minutes with a travelling squirrel.
+</p>
+
+<p>
+🐿️🌷🍫📚🎵
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+🐿️ Nutmeg's delivery is complete. Enjoy your flowers, chocolate, books, music and movie. ✨
+
+</footer>
+
+<script>
+
+function chooseFlower(flower){
+document.getElementById("flowerResult").innerHTML =
+flower + "<br><br>Excellent choice. Your bouquet has been carefully prepared and officially approved by the International Squirrel Flower Society.";
+hearts();
+}
+
+function chooseChocolate(choco){
+document.getElementById("chocoResult").innerHTML =
+choco + "<br><br>Wonderful choice. Comfort levels have increased significantly.";
+hearts();
+}
+
+function hearts(){
+
+for(let i=0;i<20;i++){
+
+let heart = document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*20)+"px";
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
